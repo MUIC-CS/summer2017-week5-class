@@ -1,11 +1,11 @@
 import React from 'react'
-
+import axios from 'axios'
 function ListHandView({data}) {
   return  (
     <ul>
-      data.map(d => {
-        return <li>{d.username}:{d.hand}</li>
-      })
+      {data.map(d => {
+        return (<li key={d.username}>{d.username}:{d.hand}</li>)
+      })}
     </ul>
   )
 }
@@ -17,6 +17,14 @@ export default class ListHand extends React.Component {
     this.state={
       data: null
     }
+  }
+
+  componentDidMount() {
+    axios.get('/list-hand').then(res => {
+      const {data} = res.data
+      console.log(data)
+      this.setState({data})
+    })
   }
 
   render() {

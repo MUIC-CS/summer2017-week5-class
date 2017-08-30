@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import ListHand from './ListHand'
 
 function Register() {
   return (<div> Register Page</div>)
@@ -17,10 +18,6 @@ function Login() {
 
 function Logout() {
   return (<div> Logout Page</div>)
-}
-
-function ListHand() {
-  return (<div>List Hand Page</div>)
 }
 
 class App extends Component {
