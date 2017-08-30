@@ -1,5 +1,5 @@
 import React from 'react'
-
+import axios from 'axios'
 function LoginView({
   username,
   password,
@@ -40,6 +40,15 @@ export default class Login extends React.Component {
 
   onLogin(username, password) {
     console.log('attempt to Login', {username, password})
+    axios
+      .post('/login', {username, password})
+      .then(res => {
+        console.log("YEAHHHHHH", res.data.username)
+        //this.props.onLoginSuccess(res.data.username)
+      }).catch(err => {
+        console.log(err.response.status)
+        this.setState({errorMessage: 'Something went wrong'})
+      })
   }
 
   render() {
