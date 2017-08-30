@@ -7,14 +7,12 @@ import {
   Link
 } from 'react-router-dom'
 import ListHand from './ListHand'
+import Login from './Login'
 
 function Register() {
   return (<div> Register Page</div>)
 }
 
-function Login() {
-  return (<div> Login Page</div>)
-}
 
 function Logout() {
   return (<div> Logout Page</div>)
