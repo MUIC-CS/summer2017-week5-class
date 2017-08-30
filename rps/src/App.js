@@ -9,15 +9,12 @@ import {
 } from 'react-router-dom'
 import ListHand from './ListHand'
 import Login from './Login'
+import SetHand from './SetHand'
 import { withRouter } from 'react-router'
 import axios from 'axios'
 
 function Register() {
   return (<div> Register Page</div>)
-}
-
-function SetHand() {
-  return (<div> Set Hand Page </div>)
 }
 
 function Logout() {

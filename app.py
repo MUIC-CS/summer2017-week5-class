@@ -51,6 +51,15 @@ def whoami():
         abort(401)
 
 
+@app.route("/myhand")
+def myhand():
+    if session.get('login', False):
+        username = session['username']
+        return jsonify({'hand': db[username]['hand']})
+    else:
+        abort(401)
+
+
 @app.route("/login", methods=["POST"])
 def login():
     username = request.json['username']
