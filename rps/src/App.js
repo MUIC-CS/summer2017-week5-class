@@ -19,6 +19,11 @@ function Logout() {
 }
 
 class App extends Component {
+
+  onLoginSuccess(username) {
+    console.log('From App: Login Success', username)
+  }
+
   render() {
     return (
       <div>
@@ -32,7 +37,9 @@ class App extends Component {
             </ul>
             <Route exact path="/" component={Login}/>
             <Route path="/app/register" component={Register}/>
-            <Route path="/app/login" component={Login}/>
+            <Route path="/app/login" render={()=>{
+              return <Login onLoginSuccess={this.onLoginSuccess.bind(this)}/>
+            }}/>
             <Route path="/app/list-hand" component={ListHand}/>
           </div>
         </Router>
