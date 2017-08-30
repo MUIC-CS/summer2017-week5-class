@@ -12,11 +12,11 @@ function Register() {
 }
 
 function Login() {
-  return (<div> Register Page</div>)
+  return (<div> Login Page</div>)
 }
 
 function Logout() {
-  return (<div> Register Page</div>)
+  return (<div> Logout Page</div>)
 }
 
 function ListHand() {
@@ -28,9 +28,18 @@ class App extends Component {
     return (
       <div>
         <Router>
-          <Route path="/app/register" component={Register}/>
-          <Route path="/app/login" component={Login}/>
-          <Route path="/app/list-hand" component={ListHand}/>
+          <div>
+            <ul>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/app/register">Register</Link></li>
+              <li><Link to="/app/login">Login</Link></li>
+              <li><Link to="/app/list-hand">List Hand</Link></li>
+            </ul>
+            <Route exact path="/" component={Login}/>
+            <Route path="/app/register" component={Register}/>
+            <Route path="/app/login" component={Login}/>
+            <Route path="/app/list-hand" component={ListHand}/>
+          </div>
         </Router>
       </div>
     );
