@@ -43,6 +43,14 @@ def register():
     return jsonify({"status": 'OK'})
 
 
+@app.route("/whoami")
+def whoami():
+    if session.get('login', False):
+        return jsonify({'usernmae': session['username']})
+    else:
+        abort(401)
+
+
 @app.route("/login", methods=["POST"])
 def login():
     username = request.json['username']
