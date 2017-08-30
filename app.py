@@ -44,8 +44,14 @@ def register():
 
 @app.route('/list-hand')
 def list_hand():
-    ret = [{'username': k, 'hand': v['hand']} for k, v in db.items()]
-    return jsonify(ret)
+    for k, v in db.iteritems():
+        print dict(username=k, hand=v['hand'])
+    ret = [
+        dict(username=k, hand=v['hand'])
+        for k, v in db.iteritems()
+    ]
+    print ret
+    return jsonify({'data': ret})
 
 if __name__ == '__main__':
     app.run(debug=True)
