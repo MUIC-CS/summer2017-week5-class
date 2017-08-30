@@ -19,7 +19,9 @@ export default class SetHand extends React.Component {
   }
 
   componentDidMount() {
-    
+    axios.get('/myhand').then(res=>{
+      this.setState({hand: res.data.hand})
+    })
   }
 
   onHandChange(newHand) {

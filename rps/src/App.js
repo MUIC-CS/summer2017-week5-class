@@ -40,6 +40,13 @@ class App extends Component {
     this.props.history.push('/app/list-hand')
   }
 
+  onLogout() {
+    axios.get('/logout').then(() =>{
+      this.setState({username: null})
+      this.props.history.push('/app/login')
+    })
+  }
+
   render() {
     const {username}  = this.state
     return (
@@ -52,6 +59,7 @@ class App extends Component {
             <li><Link to="/app/login">Login</Link></li>
             <li><Link to="/app/set-hand">Set Hand</Link></li>
             <li><Link to="/app/list-hand">List Hand</Link></li>
+            <li><a onClick={this.onLogout.bind(this)}>Logout</a></li>
           </ul>
           <Route exact path="/" render={() =>
             <Redirect to={username===null?'/app/login':'/app/list-hand'}/>
