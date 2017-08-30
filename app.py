@@ -17,8 +17,8 @@ app.secret_key = 'E19B2598-E057-41E5-8104-EDB6AEB18184'
 
 db = {
     "piti": {
-        password: "643ebc14c890ac458fca7cbd6c32f76fc859dca0da955c18cd2e62ef7f35211e",
-        hand: "rock"
+        "password": "643ebc14c890ac458fca7cbd6c32f76fc859dca0da955c18cd2e62ef7f35211e",
+        "hand": "rock"
     }
 }
 
@@ -48,8 +48,8 @@ def list_hand():
     return jsonify(ret)
 
 if __name__ == '__main__':
-    # app.run(debug=True)
-    print hash_password('piti', '123456')
+    app.run(debug=True)
+
 #
 #
 
