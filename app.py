@@ -46,7 +46,7 @@ def register():
 @app.route("/whoami")
 def whoami():
     if session.get('login', False):
-        return jsonify({'usernmae': session['username']})
+        return jsonify({'username': session['username']})
     else:
         abort(401)
 

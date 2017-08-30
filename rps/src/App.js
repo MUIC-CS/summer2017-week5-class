@@ -10,6 +10,7 @@ import {
 import ListHand from './ListHand'
 import Login from './Login'
 import { withRouter } from 'react-router'
+import axios from 'axios'
 
 function Register() {
   return (<div> Register Page</div>)
@@ -28,6 +29,13 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {username: null}
+  }
+
+  componentDidMount() {
+    axios.get('/whoami').then(res => {
+      console.log(res.data)
+      this.setState({username: res.data.username})
+    })
   }
 
   onLoginSuccess(username) {
